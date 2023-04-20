@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+//Libraries
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+//Pages//
+import SignIn from "./pages/SignIn/SignIn";
+import Signup from "./pages/SignUp/Signup"
+import MainPage from "./pages/MainPage/MainPage";
+import Income from "./pages/Income/Income";
+import Withdraw from "./pages/Expense/Expense"
 
-export default App;
+//Contexts
+import { UserContext } from "./components/Context";
+
+export default function App() {
+
+
+    const [internalAnalysis, setInternalAnalysis] = useState([])
+
+    return (
+    <UserContext.Provider value={{ internalAnalysis, setInternalAnalysis }}>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<SignIn/>} />
+                <Route path="/cadastro" element={<Signup/>} />
+                <Route path="/home" element={<MainPage/>} />
+                <Route path="/nova-entrada" element={<Income/>} />
+                <Route path="/nova-saida" element={<Withdraw/>} />
+            </Routes>
+        </BrowserRouter>
+    </UserContext.Provider>
+    )
+    }
