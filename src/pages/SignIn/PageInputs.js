@@ -11,7 +11,7 @@ function LoginPageInput () {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-  function main(s){
+  function main(parameter){
     
       const subAnalysis = {
 
@@ -32,12 +32,11 @@ function LoginPageInput () {
               nextPage.catch(error => {
 
                   alert(error.response.data)
-                  console.log(error)
 
               });
 
     
-      s.preventDefault()
+            parameter.preventDefault()
 
      }
 
@@ -47,11 +46,11 @@ function LoginPageInput () {
     <Form onSubmit={main}>
 
       <BigBox htmlFor="email">
-        <Input placeholder="E-mail" id="email" type="text" value={email} onChange={(s) => setEmail(s.currentTarget.value)}></Input>
+        <Input placeholder="E-mail" type="text" id="email"  value={email} onChange={(parameter) => setEmail(parameter.currentTarget.value)}></Input>
       </BigBox>
 
       <BigBox htmlFor="password">
-        <Input placeholder="Senha" id="password" type="text" value={password} onChange={(s) => setPassword(s.currentTarget.value)} ></Input>
+        <Input placeholder="Senha" type="text" id="password" value={password} onChange={(parameter) => setPassword(parameter.currentTarget.value)} ></Input>
       </BigBox>
 
       <Button type="submit" id="submitbutton">
@@ -61,42 +60,57 @@ function LoginPageInput () {
   );
 }
 
+
 export default LoginPageInput;
 
+
 const Form = styled.form`
+  
+  width: 330x;
   display: flex;
   flex-direction: column;
-  width: 330x;
+
 `;
 
 const BigBox = styled.label`
+
   display: flex;
   flex-direction: column;
   margin-bottom: 13px;
+
 `;
 
 const Input = styled.input`
+
   width: 326px;
   height: 58px;
-  border-radius: 5px;
   font-weight: 400;
   font-size: 20px;
   line-height: 23px;
+  border-radius: 5px;
+
   &::placeholder {
+
        color: black;
+
    }
+
 `;
 const Button = styled.button`
+  
+  width: 326px;
+  height: 46px;
   border-style: none;
   background: #a328d6;
   border-radius: 5px;
   border-radius: 4.63636px;
-  width: 326px;
-  height: 46px;
+  
   p {
+
     font-weight: 700;
     font-size: 20px;
     line-height: 23px;
     color: #FFFFFF;
+    
   }
 `;

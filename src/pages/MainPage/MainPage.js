@@ -48,8 +48,7 @@ function MainPage() {
 
     cadastre.catch((error) => {
 
-      console.log(error)
-      alert("Seu token expirou");
+      alert(" error ");
       navigate('/')
 
     });
@@ -89,16 +88,20 @@ function MainPage() {
             <SecondBox key={index}>
 
             <div style={{display:'flex'} }>
+
             <h1>{entry.date}</h1>
             <h2>{entry.description}</h2>
+
             </div>
-            <p className={entry.type === 'withdraw' ? 'red' : entry.type === 'deposit' ? 'green' : ''}>
+
+            <p className={entry.type === 'TheExpense' ? 'red' : entry.type === 'TheIncome' ? 'green' : ''}>
               {Number(entry.value).toFixed(2)}
             </p>
 
           </SecondBox>
 
           ))
+          
         )}
 
         </BigBox>
@@ -147,39 +150,49 @@ function MainPage() {
 export default MainPage;
 
 const MainPageContainer = styled.div`
+
   height: 700px;
-  align-items: center;
-  margin: auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: rgb(140, 16, 190);
+  margin: auto;
+
 `;
 
 const TopContainer = styled.div`
-  margin-top: 25px;
-  margin-bottom: 25px;
+  
+  width: 320px;
   display: flex;
   justify-content: space-between;
-  width: 320px;
   align-items: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+
   P {
+
     font-weight: 700;
     font-size: 26px;
     color: #ffffff;
+
   }
+
 `;
 
 const LeaveIcon = styled(IoLogOutOutline)`
+
   font-size: 30px;
   color: #ffffff;
+
 `;
 
 const SubContainer = styled.div`
-  align-items: center;
+  
   width: 326px;
   height: 446px;
-  background: #ffffff;
+  align-items: center;
   border-radius: 5px;
+  background: #ffffff;
   margin-bottom: 13px;
   overflow:auto;
   
@@ -189,84 +202,13 @@ const SubContainer = styled.div`
 .green{
     color:green;
 }
+
 position:relative;
-`;
 
-const BottomContainer = styled.div`
-  width: 326px;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const New = styled.div`
-  position: relative;
-  width: 155px;
-  height: 114px;
-  background: #a328d6;
-  border-radius: 5px;
-  p {
-    width: 1px;
-    font-weight: 700;
-    font-size: 17px;
-    line-height: 20px;
-    position: absolute;
-    bottom: 15px;
-    left: 10px;
-    color: #ffffff;
-  }
-`;
-
-const Minus = styled(IoRemoveCircleOutline)`
-  top: 10px;
-  left: 10px;
-  position: absolute;
-  font-size: 22px;
-  color: #ffffff;
-`;
-
-const Plus = styled(IoAddCircleOutline)`
-  top: 10px;
-  left: 10px;
-  position: absolute;
-  font-size: 22px;
-  color: #ffffff;
-`;
-
-const SecondBox = styled.div`
-  margin-top:9px;
-  display:flex;
-  justify-content:space-between;
-  h2{
-    margin-left:8px;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    color: #000000;
-  }
-  h1{
-    margin-left:3px;
-    font-size: 16px;
-    line-height: 19px;
-    color: #C6C6C6;
-  }
-  p{
-    margin-right:3px;
-  }
-`;
-const Cash = styled.div`
-  width: 100%;
-  position:absolute;
-  bottom:10px;
-  .red{
-    color:red;
-}
-.green{
-    color:green;
-}
-  
 `;
 
 const BigBox = styled.div`
+
   width: 100%;
   height:93%;
   overflow:auto;
@@ -274,13 +216,121 @@ const BigBox = styled.div`
 `;
 
 const MainTitle = styled.div`
-font-size: 20px;
-color: #868686;
-position:absolute;
-text-align: center;
-align-items:center;
-margin:auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`
+
+  align-items:center;
+  font-size: 20px;
+  color: #868686;
+  text-align: center;
+  position:absolute;
+  margin:auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+ 
+`;
+
+const SecondBox = styled.div`
+
+  display:flex;
+  justify-content:space-between;
+  margin-top:9px;
+
+  h2{
+
+    margin-left:8px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+
+  }
+
+  h1{
+
+    margin-left:3px;
+    font-size: 16px;
+    line-height: 19px;
+    color: #C6C6C6;
+
+  }
+
+  p{
+
+    margin-right:3px;
+
+  }
+`;
+
+const Cash = styled.div`
+
+  width: 100%;
+  bottom:10px;
+  position:absolute;
+
+  .red{
+
+    color:red;
+}
+
+.green{
+
+    color:green;
+
+}
+  
+`;
+
+
+const BottomContainer = styled.div`
+
+  width: 326px;
+  display: flex;
+  justify-content: space-between;
+
+`;
+
+const New = styled.div`
+
+  width: 155px;
+  height: 114px;
+  background: #a328d6;
+  border-radius: 5px;
+  position: relative;
+
+  p {
+
+    width: 1px;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    bottom: 15px;
+    left: 10px;
+    color: #ffffff;
+    position: absolute;
+
+  }
+`;
+
+const Minus = styled(IoRemoveCircleOutline)`
+
+  top: 10px;
+  left: 10px;
+  font-size: 22px;
+  color: #ffffff;
+  position: absolute;
+
+`;
+
+const Plus = styled(IoAddCircleOutline)`
+
+  top: 10px;
+  left: 10px;
+  font-size: 22px;
+  color: #ffffff;
+  position: absolute;
+
+`;
+
+
+
+

@@ -1,9 +1,9 @@
 
-
-import styled from "styled-components";
 import ExpansePageInputs from "./PageInputs";
+import styled from "styled-components";
 
-export default function Expense(){
+
+export default function Expense (){
 
     return (
 
@@ -20,25 +20,32 @@ export default function Expense(){
 
 
 const ExpensePageContainer = styled.div`
+
   height: 700px;
-  align-items: center;
-  margin: auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: rgb(140, 16, 190);
+  margin: auto;
+
 `;
 
 
 const MainTitle = styled.div`
-  margin-top: 25px;
-  margin-bottom: 25px;
+  
+  width: 320px;
   display: flex;
   justify-content: space-between;
-  width: 320px;
   align-items: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+
   P {
     font-weight: 700;
+
     font-size: 26px;
     color: #ffffff;
+
   }
+
 `;

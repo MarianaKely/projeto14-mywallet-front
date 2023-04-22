@@ -12,7 +12,7 @@ function SignUpInputs() {
   const [password, setPassword] = useState("")
   const [parole, setParole] = useState("")
 
-   function signup(s){
+   function signup(parameter){
     
     const subAnalysis = {
 
@@ -27,7 +27,6 @@ function SignUpInputs() {
 
            nextPage.then(ok => {
 
-                console.log(ok)
                 navigate("/")
                 alert(ok.data)
 
@@ -36,11 +35,10 @@ function SignUpInputs() {
             nextPage.catch(error => {
 
                 alert(error.message)
-                console.log(error)
 
             });
 
-    s.preventDefault()
+        parameter.preventDefault()
 
    }
 
@@ -50,19 +48,19 @@ function SignUpInputs() {
       <Form onSubmit={signup}>
 
         <BigBox htmlFor="name">
-          <Input placeholder="Nome" id="name" type="text" value={personalUser} onChange={(s) => setPersonalUser(s.currentTarget.value)}></Input>
+          <Input placeholder="Nome" type="text" id="name" value={personalUser} onChange={(parameter) => setPersonalUser(parameter.currentTarget.value)}></Input>
         </BigBox>
 
         <BigBox htmlFor="email">
-          <Input placeholder="E-mail" id="email" type="text" value={email} onChange={(s) => setEmail(s.currentTarget.value)}></Input>
+          <Input placeholder="E-mail" type="text" id="email" value={email} onChange={(parameter) => setEmail(parameter.currentTarget.value)}></Input>
         </BigBox>
 
         <BigBox htmlFor="password">
-          <Input placeholder="Senha" id="password" type="text" value={password} onChange={(s) => setPassword(s.currentTarget.value)}></Input>
+          <Input placeholder="Senha" type="text" id="password"  value={password} onChange={(parameter) => setPassword(parameter.currentTarget.value)}></Input>
         </BigBox>
 
         <BigBox htmlFor="confirm-password">
-          <Input placeholder="Confirme a senha" id="password" type="text" value={parole} onChange={(s) => setParole(s.currentTarget.value)} ></Input>
+          <Input placeholder="Confirme a senha" type="text" id="password"  value={parole} onChange={(parameter) => setParole(parameter.currentTarget.value)} ></Input>
         </BigBox>
 
         <Button type="submit" id="submitbutton">
@@ -75,40 +73,53 @@ function SignUpInputs() {
   export default SignUpInputs;
   
   const Form = styled.form`
+    
+    width: 330x;
     display: flex;
     flex-direction: column;
-    width: 330x;
+
   `;
   
   const BigBox = styled.label`
+
     display: flex;
     flex-direction: column;
     margin-bottom: 13px;
+
   `;
   
   const Input = styled.input`
+
     width: 326px;
     height: 58px;
-    border-radius: 5px;
     font-weight: 400;
     font-size: 20px;
     line-height: 23px;
+    border-radius: 5px;
+
     &::placeholder {
+
          color: black;
   
      }
   `;
+
   const Button = styled.button`
-    border-style: none;
-    background: #a328d6;
-    border-radius: 5px;
-    border-radius: 4.63636px;
+     
     width: 326px;
     height: 46px;
+    border-style: none;
+    border-radius: 5px;
+    border-radius: 4.63636px;
+    background: #a328d6;
+    
     p {
+      
+      color: #FFFFFF;
       font-weight: 700;
       font-size: 20px;
       line-height: 23px;
-      color: #FFFFFF;
+      
+
     }
   `;
